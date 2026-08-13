@@ -1,0 +1,29 @@
+.display-flex {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.span__color {
+    color: #FF1818;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.no-data {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-transform: capitalize;
+    color: var(--theme-primary);
+}
+
+.horizontal__ruler {
+    width: 100%;
+    border-bottom: 2px solid var(--border-clr);
+    margin: 0;
+}

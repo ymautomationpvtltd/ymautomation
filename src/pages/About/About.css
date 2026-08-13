@@ -1,0 +1,298 @@
+.about-page {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 40rem;
+  overflow: hidden;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================
+   MIDDLE SLANTING GRAY STRIP
+   Pure dynamic dvw & dvh units without fixed px caps
+========================================= */
+
+.about-slant-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 48dvw;
+  width: 25dvw;
+  height: 100dvh;
+  z-index: 10;
+  pointer-events: none;
+  clip-path: polygon(10.628dvh 0, calc(100% + 10.628dvh) 0, calc(100% - 10.628dvh) 100%, -10.628dvh 100%);
+  -webkit-clip-path: polygon(10.628dvh 0, calc(100% + 10.628dvh) 0, calc(100% - 10.628dvh) 100%, -10.628dvh 100%);
+}
+
+.about-slant-bg {
+  position: absolute;
+  inset: -5dvh 0;
+  background-color: #eaeaea;
+  transform: skewX(-12deg);
+  transform-origin: center;
+  box-shadow: -0.5rem 0 1.5rem rgba(0, 0, 0, 0.04);
+}
+
+/* Slanted "Managing Director" Outlined Text inside gray box */
+.slant-md-text {
+  position: absolute;
+  left: 3dvw;
+  top: 50%;
+  /* bottom: 30dvh; */
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  writing-mode: horizontal-tb;
+  font-size: clamp(1.5rem, 2.25dvw, 3rem);
+  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.12em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(150, 150, 150, 0.55);
+  white-space: nowrap;
+  user-select: none;
+  z-index: 11;
+}
+
+/* MD Portrait Photo inside gray box */
+.director-portrait-container {
+  position: absolute;
+  bottom: 4dvh;
+  right: -2dvw;
+  width: 90%;
+  height: 68dvh;
+  z-index: 12;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.director-portrait-img {
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transform: skewX(12deg);
+  transform-origin: bottom center;
+  filter: drop-shadow(0 1rem 2rem rgba(0, 0, 0, 0.12));
+  clip-path: polygon(-5% 0, 135% 0, 98.36% 100%, -38% 100%);
+  -webkit-clip-path: polygon(-5% 0, 135% 0, 98.36% 100%, -38% 100%);
+}
+
+/* =========================================
+   LEFT SECTION: ABOUT, WHY CHOOSE US, CUSTOMERS
+========================================= */
+
+.about-left-section {
+  position: absolute;
+  left: var(--content-left, 10dvw);
+  top: 11dvh;
+  bottom: 4dvh;
+  width: 32dvw;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: auto;
+}
+
+.about-block-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: clamp(1.4rem, 1.8dvw, 2.2rem);
+  font-weight: 800;
+  color: #9ca3af;
+  margin: 0 0 0.6rem 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.about-title-bar {
+  width: 0.3rem;
+  height: 1.4rem;
+  background-color: #ffb800;
+  border-radius: 0.25rem;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.about-title-highlight {
+  color: #111827;
+  margin-left: 0.25rem;
+}
+
+.about-text-content {
+  font-size: clamp(0.8rem, 0.95dvw, 1.1rem);
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0 0 1rem 0;
+  font-family: 'Open Sans', sans-serif;
+
+  text-wrap: balance;
+}
+
+/* Why Choose Us feature icons */
+.why-choose-icons-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1dvw;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-icon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.feature-icon-badge {
+  width: clamp(2.6rem, 3.5dvw, 4rem);
+  height: clamp(2.6rem, 3.5dvw, 4rem);
+  border-radius: 50%;
+  background-color: #fff9e6;
+  border: 1px solid #ffe699;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffb800;
+  font-size: clamp(1.1rem, 1.5dvw, 1.8rem);
+  box-shadow: 0 0.25rem 0.75rem rgba(255, 184, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.feature-icon-card:hover .feature-icon-badge {
+  transform: translateY(-0.25rem) scale(1.06);
+}
+
+.feature-icon-label {
+  font-size: clamp(0.75rem, 0.85dvw, 1rem);
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* =========================================
+   RIGHT SECTION: YOGESHWARAN MURALIDHARAN BIO
+========================================= */
+
+.about-right-section {
+  position: absolute;
+  left: calc(48dvw + 25dvw + 2dvw);
+  right: 3dvw;
+  top: 38dvh;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+}
+
+.director-info-box {
+  max-width: 24dvw;
+}
+
+.director-name {
+  font-size: clamp(1.6rem, 2.3dvw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #111827;
+  margin: 0 0 0.8rem 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.director-name-highlight {
+  color: #ffb800;
+  display: block;
+  text-align: end;
+}
+
+.director-bio {
+  font-size: clamp(0.8rem, 0.95dvw, 1.1rem);
+  line-height: 1.65;
+  color: #4b5563;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+
+  text-wrap: balance;
+}
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES FOR LAPTOPS, TABLETS & MOBILES
+========================================= */
+
+@media (max-width: 992px) {
+  .about-page {
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+
+  .about-left-section {
+    position: relative;
+    order: 1;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    width: calc(100% - 6.5rem);
+    margin-left: 5.5rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-slant-wrapper {
+    position: relative;
+    order: 2;
+    left: 5.5rem;
+    width: calc(100% - 6.5rem);
+    height: 20rem;
+    margin-bottom: 2rem;
+    clip-path: none;
+    -webkit-clip-path: none;
+  }
+
+  .about-slant-bg {
+    transform: skewX(-6deg);
+  }
+
+  .slant-md-text {
+    font-size: clamp(1.4rem, 5dvw, 2.2rem);
+    left: 1.2rem;
+    bottom: 7rem;
+  }
+
+  .director-portrait-container {
+    height: 18rem;
+    right: 0;
+  }
+
+  .director-portrait-img {
+    transform: skewX(6deg);
+  }
+
+  .about-right-section {
+    position: relative;
+    order: 3;
+    left: auto;
+    right: auto;
+    top: auto;
+    width: calc(100% - 6.5rem);
+    margin-left: 5.5rem;
+    margin-right: 1rem;
+    max-width: 100%;
+  }
+
+  .director-info-box {
+    max-width: 100%;
+  }
+}

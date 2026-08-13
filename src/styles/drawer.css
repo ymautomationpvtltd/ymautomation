@@ -1,0 +1,26 @@
+.header__drawer {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-left: auto;
+}
+
+.header__drawer > svg {
+    cursor: pointer;
+    scale: 1.5;
+    color: var(--theme-primary);
+}
+
+.header__drawer svg:hover {
+    scale: 1.75 !important;
+}
+
+.drawer__content {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    transition: 
+        opacity 2s ease-in-out, 
+        width 2s ease-in-out;
+}

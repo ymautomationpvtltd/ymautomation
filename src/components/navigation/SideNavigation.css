@@ -1,0 +1,147 @@
+.side-navigation {
+  position: fixed;
+  left: var(--sidebar-left, 1.8dvw);
+  top: 3.5dvh;
+  bottom: 3.5dvh;
+  width: clamp(5.5rem, 6.5dvw, 7.5rem);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+
+  /* border: 1px solid red; */
+  background-color: #fff;
+}
+
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.nav-logo-img {
+  aspect-ratio: 1;
+  width: clamp(2.4rem, 3.5dvw, 3.4rem);
+  height: clamp(2.4rem, 3.5dvw, 3.4rem);
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo-link:hover .nav-logo-img {
+  transform: scale(1.05);
+}
+
+.nav-timeline-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  justify-content: center;
+}
+
+/* Vertical separator line on the RIGHT side of the navbar */
+.nav-timeline-line {
+  position: absolute;
+  right: 0;
+  top: -1.2rem;
+  bottom: 0;
+  width: 1.5px;
+  background-color: #d1d5db;
+  border-radius: 2px;
+}
+
+/* Vertical line end terminal dots */
+.nav-timeline-line::before,
+.nav-timeline-line::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #9ca3af;
+}
+
+.nav-timeline-line::before {
+  top: -2px;
+}
+
+.nav-timeline-line::after {
+  bottom: -2px;
+}
+
+.nav-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.2rem, 5dvh, 2.2rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Dot positioning next to the text on the left */
+.nav-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background-color: #9ca3af;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: clamp(0.85rem, 1dvw, 1.05rem);
+  font-weight: 500;
+  color: #6b7280;
+  transition: color 0.25s ease, font-weight 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #111827;
+  transform: translateX(0.2rem);
+}
+
+.nav-item.active .nav-link {
+  color: #111827;
+  font-weight: 700;
+}
+
+.nav-item.active .nav-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  background-color: #ffb800;
+  box-shadow: 0 0 0 0.2rem rgba(255, 184, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .side-navigation {
+    left: 0.5rem;
+    top: 1rem;
+    bottom: 1rem;
+    width: 4.8rem;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+  }
+
+  .nav-timeline-line {
+    right: 0;
+  }
+}

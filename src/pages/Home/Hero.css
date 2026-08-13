@@ -1,0 +1,49 @@
+.hero-page {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 35rem;
+  overflow: hidden;
+  background: linear-gradient(105deg, #fff 0%, #eee 60%, #c7c7c7 100%);
+}
+
+/* =========================================
+   AUTOMATION WORD BLOCK
+========================================= */
+
+.automation-block {
+  position: fixed;
+  right: 1.5dvw;
+  top: 2.5dvh;
+  z-index: 5;
+  height: 94dvh;
+  width: 5.5dvw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+  background: none;
+}
+
+.automation-block::before {
+  display: none;
+}
+
+.automation-block span {
+  position: relative;
+  z-index: 1;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  /* font-size: clamp(2.1rem, 5.5dvw, 5.6rem); */
+  font-size: clamp(2rem, 4.25dvw, 3.5rem);
+  font-family: "Audiowide";
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: linear-gradient(-90deg, #E4E4E4 0%, #E4E4E4 25%, #C7C7C7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  user-select: none;
+}

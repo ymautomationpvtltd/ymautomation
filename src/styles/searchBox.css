@@ -1,0 +1,18 @@
+.search__box {
+    border: 1px solid var(--theme-primary);
+    border-radius: var(--border-radius);
+
+    display: flex;
+}
+
+.search__box button {
+    border: none;
+}
+
+.search__box-input {
+    outline: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    color: var(--theme-primary);
+}

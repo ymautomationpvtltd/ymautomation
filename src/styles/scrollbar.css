@@ -1,0 +1,20 @@
+/* Scrollbar stylling */
+/* width */
+::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /* display: none; */
+    background-color: #D9D9D9;
+    border-radius: 999dvw;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--theme-primary);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}

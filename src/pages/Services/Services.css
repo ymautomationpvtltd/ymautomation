@@ -1,0 +1,205 @@
+.services-page {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 30rem;
+  overflow: hidden;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.services-content-container {
+  position: absolute;
+  top: 12dvh;
+  left: var(--content-left, 10dvw);
+  right: 5dvw;
+  bottom: 4dvh;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.services-header-block {
+  text-align: center;
+  max-width: 48rem;
+  margin-bottom: 2.5dvh;
+}
+
+.services-page-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: clamp(1.6rem, 2.4dvw, 2.4rem);
+  font-weight: 800;
+  color: #9ca3af;
+  margin: 0 0 0.6rem 0;
+}
+
+.services-title-bar {
+  width: 0.3rem;
+  height: 1.5rem;
+  background-color: #ffb800;
+  border-radius: 0.25rem;
+  display: inline-block;
+}
+
+.services-title-main {
+  color: #4b5563;
+}
+
+.services-subtitle {
+  font-size: clamp(0.8rem, 0.95dvw, 1rem);
+  line-height: 1.5;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* =========================================
+   3D CAROUSEL FLOW
+========================================= */
+
+.services-carousel-stage {
+  position: relative;
+  width: 100%;
+  height: 42dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 75rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-card-item {
+  position: absolute;
+  width: clamp(14rem, 24dvw, 20rem);
+  height: clamp(14rem, 38dvh, 20rem);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  cursor: pointer;
+  /* box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.15); */
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  /* background-color: #111827; */
+  user-select: none;
+}
+
+.service-card-img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  transition: transform 0.5s ease;
+}
+
+.service-card-item:hover .service-card-img {
+  transform: scale(1.05);
+}
+
+/* Card 3D Perspective Positions */
+.service-card-item.pos-center {
+  z-index: 30;
+  transform: translateX(0) scale(1.15) translateZ(0);
+  /* box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.28); */
+  /* border: 2px solid rgba(255, 184, 0, 0.6); */
+}
+
+.service-card-item.pos-left-1 {
+  z-index: 20;
+  transform: translateX(-65%) scale(0.9) rotateY(18deg);
+  opacity: 0.85;
+}
+
+.service-card-item.pos-left-2 {
+  z-index: 10;
+  transform: translateX(-120%) scale(0.75) rotateY(32deg);
+  opacity: 0.55;
+}
+
+.service-card-item.pos-right-1 {
+  z-index: 20;
+  transform: translateX(65%) scale(0.9) rotateY(-18deg);
+  opacity: 0.85;
+}
+
+.service-card-item.pos-right-2 {
+  z-index: 10;
+  transform: translateX(120%) scale(0.75) rotateY(-32deg);
+  opacity: 0.55;
+}
+
+.service-card-item.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(0) scale(0.5);
+  z-index: 0;
+}
+
+/* =========================================
+   ACTIVE CARD DETAILS & PAGINATION
+========================================= */
+
+.service-detail-block {
+  text-align: center;
+  max-width: 42rem;
+  margin-top: 0.6rem;
+}
+
+.active-card-title {
+  font-size: clamp(1.2rem, 1.6dvw, 1.6rem);
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 0.6rem 0;
+}
+
+.active-card-description {
+  font-size: clamp(0.8rem, 0.95dvw, 1rem);
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0 0 1.2rem 0;
+}
+
+.pagination-dots-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+}
+
+.pagination-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: #d1d5db;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot.active {
+  width: 1.75rem;
+  border-radius: 9999px;
+  background-color: #111827;
+}
+
+@media (max-width: 768px) {
+  .services-content-container {
+    left: 5.5rem;
+    right: 1rem;
+  }
+
+  .service-card-item {
+    width: 11rem;
+    height: 11rem;
+  }
+
+  .service-card-item.pos-left-2,
+  .service-card-item.pos-right-2 {
+    display: none;
+  }
+}
