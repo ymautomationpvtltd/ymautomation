@@ -12,6 +12,7 @@ export default defineConfig({
 	server: {
 		port: 3000,
 		// host: "192.168.0.78",
+		open: true,
 	},
 	build: {
 		sourcemap: false,
