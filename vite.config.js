@@ -3,17 +3,21 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
 	plugins: [react()],
+
 	base: "/ymautomation/",
+
 	resolve: {
 		alias: {
 			"@": "/src",
 		},
 	},
+
 	server: {
 		port: 3000,
 		// host: "192.168.0.78",
 		open: true,
 	},
+
 	build: {
 		sourcemap: false,
 	},
