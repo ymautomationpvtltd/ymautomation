@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+
+import SEO from "../../components/common/SEO";
 // Icons
 import { FaLightbulb, FaHandshake, FaUserCheck } from "react-icons/fa";
 // Images
@@ -17,6 +19,12 @@ const About = () => {
 			animate="animate"
 			exit="exit"
 		>
+			<SEO
+				title="About Us | YM Automation Pvt Ltd - Mechatronics & Industry Leaders"
+				description="Learn about YM Automation Private Limited, led by Managing Director Yogeshwaran Muralidharan in Coimbatore. We engineering ISO-certified Special Purpose Machines, custom control panels, and IIoT automation."
+				keywords="About YM Automation, Yogeshwaran Muralidharan, Automation Engineers Coimbatore, SPM Manufacturers Tamil Nadu, Mechatronics Design, Industrial Automation Leadership"
+				canonical="https://ymautomation.com/#/about"
+			/>
 			{/* ====================================================
           1. SLANTING GRAY BACKGROUND STRIP WITH MD PHOTO & SLANTED TEXT
           In-transition: Slides TOP -> BOTTOM

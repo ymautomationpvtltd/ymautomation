@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+import SEO from "../../components/common/SEO";
 // Icons
 import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 // Images
@@ -601,6 +603,12 @@ const Gallery = () => {
 				ease: [0.76, 0, 0.24, 1],
 			}}
 		>
+			<SEO
+				title="Engineering Gallery | YM Automation Custom Machines & Control Panels"
+				description="Browse the YM Automation project gallery featuring Special Purpose Machines (SPM), MCB Testbenches, Control Panels, Ultrasonic Sealing, Robotic Welding Monitors, and Traceability Software."
+				keywords="YM Automation Gallery, SPM Machine Photos, Control Panel Projects, Testbench Systems, Industrial Automation Gallery, Robotic Welding Software"
+				canonical="https://ymautomation.com/#/gallery"
+			/>
 			<div className="gallery-content-container">
 				{/* =====================================
                     HEADER

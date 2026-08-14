@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import SEO from "../../components/common/SEO";
 import TopHeader from "../../components/header/TopHeader";
 import HomeMain from "../../components/home/HomeMain";
 
@@ -14,6 +15,12 @@ const Hero = () => {
 			animate="animate"
 			exit="exit"
 		>
+			<SEO
+				title="YM Automation Pvt Ltd | Special Purpose Machines, Robotics & Industrial IoT"
+				description="YM Automation Private Limited is an industrial automation leader in Coimbatore engineering Special Purpose Machines (SPM), Robotic integration, PLC/SCADA control panels, and Industry 4.0 IoT solutions."
+				keywords="YM Automation, SPM Machines Coimbatore, Special Purpose Machinery India, Industrial Automation Company, Robotic Assembly, Control Panel Wiring, Industrial IoT, Yogeshwaran Muralidharan"
+				canonical="https://ymautomation.com/"
+			/>
 			{/* =====================================
           TOP HEADER
           Exclusive to Home page - Enters from TOP

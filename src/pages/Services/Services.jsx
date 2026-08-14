@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+
+import SEO from "../../components/common/SEO";
 // Images
 import BatteryManagementSystem from "../../assets/services/Battery_Management_System_clean.jpg";
 import CNC_SPM_Retrofit from "../../assets/services/CNC_&_SPM_Machines_Retrofit_clean.jpg";
@@ -180,6 +182,12 @@ const Services = () => {
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
 		>
+			<SEO
+				title="Our Services | Special Purpose Machines, Control Panels & IIoT Solutions"
+				description="Explore YM Automation services: Custom Special Purpose Machines (SPM), Industrial IoT & Industry 4.0, PLC/HMI/VFD Development, CNC SPM Retrofitting, Control Panel Automation, and Battery Management Systems."
+				keywords="Special Purpose Machine Services, Industrial Automation Services Coimbatore, PLC HMI VFD Programming, IIoT Solutions India, Control Panel Automation, CNC Retrofit, Process Automation"
+				canonical="https://ymautomation.com/#/services"
+			/>
 			<div className="services-content-container">
 				{/* Header Block */}
 				<motion.div

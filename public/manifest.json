@@ -1,0 +1,22 @@
+{
+  "short_name": "YM Automation",
+  "name": "YM Automation Private Limited",
+  "description": "Special Purpose Machines (SPM), Robotics & Industrial IoT Automation Solutions",
+  "icons": [
+    {
+      "src": "/assets/ym-logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/ym-logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "display": "standalone",
+  "orientation": "portrait"
+}

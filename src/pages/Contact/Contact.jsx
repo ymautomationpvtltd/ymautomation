@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
+import SEO from "../../components/common/SEO";
 // Icons
 import {
 	FaPhoneAlt,
@@ -63,6 +65,12 @@ const Contact = () => {
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
 		>
+			<SEO
+				title="Contact Us | YM Automation Pvt Ltd - Coimbatore Industrial Automation"
+				description="Get in touch with YM Automation Private Limited in Coimbatore. Contact our engineering team for Special Purpose Machine inquiries, PLC control panels, and IIoT factory solutions. Phone: +91 94890 23450, Email: ym@ymautomation.com."
+				keywords="Contact YM Automation, Industrial Automation Coimbatore Phone, YM Automation Address, Special Purpose Machine Quote, Control Panel Inquiry Coimbatore"
+				canonical="https://ymautomation.com/#/contact"
+			/>
 			<div className="contact-content-wrapper">
 				{/* Main 2-Column Contact Grid */}
 				<div className="contact-main-grid">
