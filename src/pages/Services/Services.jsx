@@ -1,99 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 // Images
-import BatteryManagementSystem from "../../assets/services/Battery_Management_System_opt.jpg";
-import CNC_SPM_Retrofit from "../../assets/services/CNC_&_SPM_Machines_Retrofit_opt.jpg";
-import ControlPanelAutomation from "../../assets/services/Control_Panel_Automation_opt.jpg";
-import CustomizedSoftwareSolutions from "../../assets/services/Customized_Software_Solutions_opt.jpg";
-import IndustrialAutomation from "../../assets/services/Industrial_Automation_opt.jpg";
-import IotSolutions from "../../assets/services/IOT_Solutions_opt.jpg";
-import MechanicalElectricalDesign from "../../assets/services/Mechanical_&_Electrical_Design_opt.jpg";
-import PlcHmiVfdDevelopment from "../../assets/services/PLC_HMI_VFD_Development_opt.jpg";
-import ProcessAutomation from "../../assets/services/Process_Automation_opt.jpg";
-import RenewableEnergy from "../../assets/services/Renewable_Energy_opt.jpg";
-import SpecialPurposeMachine from "../../assets/services/Special_Purpose_Machine_opt.jpg";
+import BatteryManagementSystem from "../../assets/services/Battery_Management_System_clean.jpg";
+import CNC_SPM_Retrofit from "../../assets/services/CNC_&_SPM_Machines_Retrofit_clean.jpg";
+import ControlPanelAutomation from "../../assets/services/Control_Panel_Automation_clean.jpg";
+import CustomizedSoftwareSolutions from "../../assets/services/Customized_Software_Solutions_clean.jpg";
+import IndustrialAutomation from "../../assets/services/Industrial_Automation_clean.jpg";
+import IotSolutions from "../../assets/services/IOT_Solutions_clean.jpg";
+import MechanicalElectricalDesign from "../../assets/services/Mechanical_&_Electrical_Design_clean.jpg";
+import PlcHmiVfdDevelopment from "../../assets/services/PLC_HMI_VFD_Development_clean.jpg";
+import ProcessAutomation from "../../assets/services/Process_Automation_clean.jpg";
+import RenewableEnergy from "../../assets/services/Renewable_Energy_clean.jpg";
+import SpecialPurposeMachine from "../../assets/services/Special_Purpose_Machine_clean.jpg";
+
 // Css
 import "./Services.css";
-
-// const servicesData = [
-// 	{
-// 		id: 0,
-// 		title: "Customized Software Solutions",
-// 		image: CustomizedSoftwareSolutions,
-// 		description:
-// 			"Custom-designed Special Purpose Machines (SPM) engineered to solve complex assembly, machining, and quality inspection challenges, boosting manufacturing throughput and accuracy.",
-// 	},
-// 	{
-// 		id: 1,
-// 		title: "Industrial Automation",
-// 		image: IndustrialAutomation,
-// 		description:
-// 			"Multi-axis robotic arm integration, gantry pick-and-place systems, automated material handling, and high-precision robotic assembly line engineering.",
-// 	},
-// 	{
-// 		id: 2,
-// 		title: "Special Purpose Machine",
-// 		image: SpecialPurposeMachine,
-// 		description:
-// 			"Industrial IoT (IIoT) sensors, edge computing, real-time data acquisition, cloud analytics, OEE tracking, and smart factory predictive maintenance dashboards.",
-// 	},
-// 	{
-// 		id: 3,
-// 		title: "Industrial IoT & Industry 4.0",
-// 		image: IotSolutions,
-// 		description:
-// 			"Expert PLC programming (Siemens, Allen-Bradley, Mitsubishi, Omron, Delta), HMI interface design, and SCADA process control systems built for maximum uptime.",
-// 	},
-// 	{
-// 		id: 4,
-// 		title: "CNC & SPM Machines Retrofit",
-// 		image: CNC_SPM_Retrofit,
-// 		description:
-// 			"Custom electrical control panel design, drive panels (VFD/Servo), power distribution, panel wiring, testing, CNC retrofitting, and legacy machine upgrades.",
-// 	},
-// 	{
-// 		id: 5,
-// 		title: "Control Panel Automation",
-// 		image: ControlPanelAutomation,
-// 		description:
-// 			"Custom electrical control panel design, drive panels (VFD/Servo), power distribution, panel wiring, testing, CNC retrofitting, and legacy machine upgrades.",
-// 	},
-// 	{
-// 		id: 6,
-// 		title: "Renewable Energy",
-// 		image: RenewableEnergy,
-// 		description:
-// 			"Custom electrical control panel design, drive panels (VFD/Servo), power distribution, panel wiring, testing, CNC retrofitting, and legacy machine upgrades.",
-// 	},
-// 	{
-// 		id: 7,
-// 		title: "Battery Management System",
-// 		image: BatteryManagementSystem,
-// 		description:
-// 			"Custom electrical control panel design, drive panels (VFD/Servo), power distribution, panel wiring, testing, CNC retrofitting, and legacy machine upgrades.",
-// 	},
-// 	{
-// 		id: 8,
-// 		title: "Mechanical & Electrical Design",
-// 		image: MechanicalElectricalDesign,
-// 		description:
-// 			"Custom electrical control panel design, drive panels (VFD/Servo), power distribution, panel wiring, testing, CNC retrofitting, and legacy machine upgrades.",
-// 	},
-// 	{
-// 		id: 9,
-// 		title: "PLC, HMI, VFD Development",
-// 		image: PlcHmiVfdDevelopment,
-// 		description:
-// 			"Custom electrical control panel design, drive panels (VFD/Servo), power distribution, panel wiring, testing, CNC retrofitting, and legacy machine upgrades.",
-// 	},
-// 	{
-// 		id: 10,
-// 		title: "Process Automation",
-// 		image: ProcessAutomation,
-// 		description:
-// 			"Custom electrical control panel design, drive panels (VFD/Servo), power distribution, panel wiring, testing, CNC retrofitting, and legacy machine upgrades.",
-// 	},
-// ];
 
 const servicesData = [
 	{
@@ -179,15 +100,15 @@ const Services = () => {
 	// const [activeIndex, setActiveIndex] = useState(2);
 	const [activeId, setActiveId] = useState(2);
 
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setActiveId((currentId) => {
-				return (currentId + 1) % servicesData.length;
-			});
-		}, 5 * 1000);
+	// useEffect(() => {
+	// 	const timer = setTimeout(() => {
+	// 		setActiveId((currentId) => {
+	// 			return (currentId + 1) % servicesData.length;
+	// 		});
+	// 	}, 5 * 1000);
 
-		return () => clearTimeout(timer);
-	}, [activeId]);
+	// 	return () => clearTimeout(timer);
+	// }, [activeId]);
 
 	const activeIndex = servicesData.findIndex(
 		(service) => service.id === activeId,
@@ -289,8 +210,6 @@ const Services = () => {
 									src={item.image}
 									alt={item.title}
 									className="service-card-img"
-									loading="lazy"
-									decoding="async"
 								/>
 							</div>
 						);
