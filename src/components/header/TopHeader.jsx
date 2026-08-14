@@ -7,6 +7,12 @@ import "./TopHeader.css";
 
 let iconSize = 25;
 
+let socialLinks = {
+	facebook: "https://facebook.com",
+	instagram: "https://instagram.com",
+	linkedin: "https://linkedin.com",
+};
+
 const TopHeader = () => {
 	return (
 		<motion.header
@@ -22,7 +28,7 @@ const TopHeader = () => {
 		>
 			<div className="social-icons-group">
 				<a
-					href="https://facebook.com"
+					href={socialLinks.facebook}
 					target="_blank"
 					rel="noopener noreferrer"
 					className="social-icon-btn"
@@ -31,7 +37,7 @@ const TopHeader = () => {
 					<FaFacebookSquare size={iconSize} />
 				</a>
 				<a
-					href="https://instagram.com"
+					href={socialLinks.instagram}
 					target="_blank"
 					rel="noopener noreferrer"
 					className="social-icon-btn"
@@ -40,7 +46,7 @@ const TopHeader = () => {
 					<RiInstagramFill size={iconSize} />
 				</a>
 				<a
-					href="https://linkedin.com"
+					href={socialLinks.linkedin}
 					target="_blank"
 					rel="noopener noreferrer"
 					className="social-icon-btn"

@@ -100,15 +100,15 @@ const Services = () => {
 	// const [activeIndex, setActiveIndex] = useState(2);
 	const [activeId, setActiveId] = useState(2);
 
-	// useEffect(() => {
-	// 	const timer = setTimeout(() => {
-	// 		setActiveId((currentId) => {
-	// 			return (currentId + 1) % servicesData.length;
-	// 		});
-	// 	}, 5 * 1000);
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setActiveId((currentId) => {
+				return (currentId + 1) % servicesData.length;
+			});
+		}, 5 * 1000);
 
-	// 	return () => clearTimeout(timer);
-	// }, [activeId]);
+		return () => clearTimeout(timer);
+	}, [activeId]);
 
 	const activeIndex = servicesData.findIndex(
 		(service) => service.id === activeId,
