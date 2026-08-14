@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 // Images
-import BatteryManagementSystem from "../../assets/services/Battery_Management_System.png";
-import CNC_SPM_Retrofit from "../../assets/services/CNC_&_SPM_Machines_Retrofit.png";
-import ControlPanelAutomation from "../../assets/services/Control_Panel_Automation.png";
-import CustomizedSoftwareSolutions from "../../assets/services/Customized_Software_Solutions.png";
-import IndustrialAutomation from "../../assets/services/Industrial_Automation.png";
-import IotSolutions from "../../assets/services/IOT_Solutions.png";
-import MechanicalElectricalDesign from "../../assets/services/Mechanical_&_Electrical_Design.png";
-import PlcHmiVfdDevelopment from "../../assets/services/PLC_HMI_VFD_Development.png";
-import ProcessAutomation from "../../assets/services/Process_Automation.png";
-import RenewableEnergy from "../../assets/services/Renewable_Energy.png";
-import SpecialPurposeMachine from "../../assets/services/Special_Purpose_Machine.png";
+import BatteryManagementSystem from "../../assets/services/Battery_Management_System_opt.jpg";
+import CNC_SPM_Retrofit from "../../assets/services/CNC_&_SPM_Machines_Retrofit_opt.jpg";
+import ControlPanelAutomation from "../../assets/services/Control_Panel_Automation_opt.jpg";
+import CustomizedSoftwareSolutions from "../../assets/services/Customized_Software_Solutions_opt.jpg";
+import IndustrialAutomation from "../../assets/services/Industrial_Automation_opt.jpg";
+import IotSolutions from "../../assets/services/IOT_Solutions_opt.jpg";
+import MechanicalElectricalDesign from "../../assets/services/Mechanical_&_Electrical_Design_opt.jpg";
+import PlcHmiVfdDevelopment from "../../assets/services/PLC_HMI_VFD_Development_opt.jpg";
+import ProcessAutomation from "../../assets/services/Process_Automation_opt.jpg";
+import RenewableEnergy from "../../assets/services/Renewable_Energy_opt.jpg";
+import SpecialPurposeMachine from "../../assets/services/Special_Purpose_Machine_opt.jpg";
 // Css
 import "./Services.css";
 
@@ -289,6 +289,8 @@ const Services = () => {
 									src={item.image}
 									alt={item.title}
 									className="service-card-img"
+									loading="lazy"
+									decoding="async"
 								/>
 							</div>
 						);
@@ -312,13 +314,13 @@ const Services = () => {
 
 					{/* Pagination Indicators */}
 					<div className="pagination-dots-container">
-						{servicesData.map((_, idx) => (
+						{servicesData.map((service, idx) => (
 							<div
 								key={idx}
 								className={`pagination-dot ${
 									idx === activeIndex ? "active" : ""
 								}`}
-								onClick={() => goToService(item.id)}
+								onClick={() => goToService(service.id)}
 							/>
 						))}
 					</div>
