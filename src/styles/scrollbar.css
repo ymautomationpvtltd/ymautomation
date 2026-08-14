@@ -14,7 +14,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--theme-primary);
+    background: #fb0;
     border-radius: var(--border-radius);
     cursor: pointer;
 }
