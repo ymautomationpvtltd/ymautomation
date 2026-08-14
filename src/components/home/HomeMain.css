@@ -25,6 +25,7 @@
   z-index: 12;
   height: 100%;
   --__fs-hero: "Open Sans", sans-serif;
+  --__text-width: 52dvw;
 }
 
 .hero-title {
@@ -35,6 +36,8 @@
   color: #111827;
   letter-spacing: -0.02em;
   margin-top: auto;
+
+  max-width: var(--__text-width);
 }
 
 .hero-description {
@@ -44,10 +47,10 @@
   color: #6b7280;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  max-width: 35rem;
+  max-width: var(--__text-width);
 
-  /* text-wrap: pretty; */
   text-wrap: balance;
+  letter-spacing: 0.2px;
 }
 
 .hero-cta-btn {

@@ -491,6 +491,63 @@
 
 
 /* =========================================================
+   LIGHTBOX NAVIGATION BUTTONS
+========================================================= */
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 2.75rem;
+  height: 2.75rem;
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  color: #ffffff;
+
+  border: none;
+
+  font-size: 1.25rem;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+
+  z-index: 10;
+}
+
+
+.lightbox-prev-btn {
+  left: 1rem;
+}
+
+
+.lightbox-next-btn {
+  right: 1rem;
+}
+
+
+.lightbox-nav-btn:hover {
+  background-color: #ffb800;
+
+  color: #111827;
+
+  transform: translateY(-50%) scale(1.1);
+}
+
+
+/* =========================================================
    LIGHTBOX TITLE
 ========================================================= */
 
@@ -579,6 +636,20 @@
 
   .gallery-card-overlay {
     display: none;
+  }
+
+  .lightbox-nav-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1rem;
+  }
+
+  .lightbox-prev-btn {
+    left: 0.5rem;
+  }
+
+  .lightbox-next-btn {
+    right: 0.5rem;
   }
 }
 

@@ -14,6 +14,18 @@
   background-color: #fff;
 }
 
+.side-navigation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: var(--sidebar-left, 1.8dvw);
+  height: 100%;
+  background-color: #fff;
+  /* background-color: red; */
+  z-index: 21;
+}
+
 .nav-logo-link {
   display: flex;
   align-items: center;
@@ -24,8 +36,8 @@
 
 .nav-logo-img {
   aspect-ratio: 1;
-  width: clamp(2.4rem, 3.5dvw, 3.4rem);
-  height: clamp(2.4rem, 3.5dvw, 3.4rem);
+  /* width: clamp(2.4rem, 3.5dvw, 3.4rem); */
+  /* height: clamp(2.4rem, 3.5dvw, 3.4rem); */
   object-fit: contain;
   transition: transform 0.3s ease;
 }

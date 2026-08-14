@@ -99,8 +99,27 @@ const servicesData = [
 const Services = () => {
 	// const [activeIndex, setActiveIndex] = useState(2);
 	const [activeId, setActiveId] = useState(2);
+	const [isStacked, setIsStacked] = useState(true);
+	const [isPaused, setIsPaused] = useState(false);
+	const [resumeKey, setResumeKey] = useState(0);
+
+	const handleMouseEnter = () => setIsPaused(true);
+	const handleMouseLeave = () => {
+		setIsPaused(false);
+		setResumeKey((prev) => prev + 1);
+	};
 
 	useEffect(() => {
+		const spreadTimer = setTimeout(() => {
+			setIsStacked(false);
+		}, 450);
+
+		return () => clearTimeout(spreadTimer);
+	}, []);
+
+	useEffect(() => {
+		if (isPaused) return;
+
 		const timer = setTimeout(() => {
 			setActiveId((currentId) => {
 				return (currentId + 1) % servicesData.length;
@@ -108,21 +127,11 @@ const Services = () => {
 		}, 5 * 1000);
 
 		return () => clearTimeout(timer);
-	}, [activeId]);
+	}, [activeId, isPaused]);
 
 	const activeIndex = servicesData.findIndex(
 		(service) => service.id === activeId,
 	);
-
-	// const getPositionClass = (index) => {
-	// 	const diff = index - activeIndex;
-	// 	if (diff === 0) return "pos-center";
-	// 	if (diff === -1 || diff === 4) return "pos-left-1";
-	// 	if (diff === -2 || diff === 3) return "pos-left-2";
-	// 	if (diff === 1 || diff === -4) return "pos-right-1";
-	// 	if (diff === 2 || diff === -3) return "pos-right-2";
-	// 	return "pos-right-2";
-	// };
 
 	const getPositionClass = (index) => {
 		const total = servicesData.length;
@@ -197,7 +206,18 @@ const Services = () => {
 				</motion.div>
 
 				{/* 3D 5-Card Carousel */}
-				<div className="services-carousel-stage">
+				<motion.div
+					className={`services-carousel-stage ${isStacked ? "initial-stack" : ""}`}
+					initial={{ y: 20, opacity: 0 }}
+					animate={{ y: 0, opacity: 1 }}
+					transition={{
+						duration: 0.7,
+						delay: 0.2,
+						ease: [0.76, 0, 0.24, 1],
+					}}
+					onMouseEnter={handleMouseEnter}
+					onMouseLeave={handleMouseLeave}
+				>
 					{servicesData.map((item, index) => {
 						const posClass = getPositionClass(index);
 						return (
@@ -214,7 +234,7 @@ const Services = () => {
 							</div>
 						);
 					})}
-				</div>
+				</motion.div>
 
 				{/* Dynamic Detail Text & Pagination Dots */}
 				<motion.div
@@ -232,7 +252,11 @@ const Services = () => {
 					</p>
 
 					{/* Pagination Indicators */}
-					<div className="pagination-dots-container">
+					<div
+						className="pagination-dots-container"
+						onMouseEnter={handleMouseEnter}
+						onMouseLeave={handleMouseLeave}
+					>
 						{servicesData.map((service, idx) => (
 							<div
 								key={idx}
@@ -240,7 +264,19 @@ const Services = () => {
 									idx === activeIndex ? "active" : ""
 								}`}
 								onClick={() => goToService(service.id)}
-							/>
+							>
+								{idx === activeIndex && (
+									<span
+										key={`${activeId}-${resumeKey}`}
+										className="pagination-progress-fill"
+										style={{
+											animationPlayState: isPaused
+												? "paused"
+												: "running",
+										}}
+									/>
+								)}
+							</div>
 						))}
 					</div>
 				</motion.div>

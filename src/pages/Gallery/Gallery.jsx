@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 // Icons
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 // Images
 // Mechanical
 import Autocalve from "../../assets/gallery/autoclave.jpeg";
@@ -537,6 +537,50 @@ const Gallery = () => {
 	}, [mosaicImages]);
 
 	/* =====================================================
+       LIGHTBOX NAVIGATION
+    ===================================================== */
+
+	const handlePrev = (e) => {
+		if (e) e.stopPropagation();
+		if (!selectedImg || !mosaicImages.length) return;
+
+		const currentIndex = mosaicImages.findIndex(
+			(img) => img.id === selectedImg.id,
+		);
+		const prevIndex =
+			(currentIndex - 1 + mosaicImages.length) % mosaicImages.length;
+		setSelectedImg(mosaicImages[prevIndex]);
+	};
+
+	const handleNext = (e) => {
+		if (e) e.stopPropagation();
+		if (!selectedImg || !mosaicImages.length) return;
+
+		const currentIndex = mosaicImages.findIndex(
+			(img) => img.id === selectedImg.id,
+		);
+		const nextIndex = (currentIndex + 1) % mosaicImages.length;
+		setSelectedImg(mosaicImages[nextIndex]);
+	};
+
+	useEffect(() => {
+		if (!selectedImg) return;
+
+		const handleKeyDown = (e) => {
+			if (e.key === "ArrowLeft") {
+				handlePrev();
+			} else if (e.key === "ArrowRight") {
+				handleNext();
+			} else if (e.key === "Escape") {
+				setSelectedImg(null);
+			}
+		};
+
+		window.addEventListener("keydown", handleKeyDown);
+		return () => window.removeEventListener("keydown", handleKeyDown);
+	}, [selectedImg, mosaicImages]);
+
+	/* =====================================================
        RENDER
     ===================================================== */
 
@@ -689,11 +733,28 @@ const Gallery = () => {
 							}}
 							onClick={(e) => e.stopPropagation()}
 						>
+							<button
+								className="lightbox-nav-btn lightbox-prev-btn"
+								onClick={handlePrev}
+								aria-label="Previous image"
+							>
+								<FaChevronLeft />
+							</button>
+
 							<img
+								key={selectedImg.id}
 								src={selectedImg.url}
 								alt={selectedImg.title}
 								className="lightbox-img"
 							/>
+
+							<button
+								className="lightbox-nav-btn lightbox-next-btn"
+								onClick={handleNext}
+								aria-label="Next image"
+							>
+								<FaChevronRight />
+							</button>
 
 							<button
 								className="lightbox-close-btn"

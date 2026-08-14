@@ -98,6 +98,14 @@
   transform: scale(1.05);
 }
 
+/* Initial entrance spread effect: cards tucked behind center card */
+.services-carousel-stage.initial-stack .service-card-item:not(.pos-center) {
+  transform: translateX(0) scale(0.85) translateZ(0) rotateY(0deg) !important;
+  opacity: 0 !important;
+  z-index: 10 !important;
+  transition-delay: 0s !important;
+}
+
 /* Card 3D Perspective Positions */
 .service-card-item.pos-center {
   z-index: 30;
@@ -109,24 +117,28 @@
   z-index: 20;
   transform: translateX(-65%) scale(0.9) rotateY(18deg);
   opacity: 0.85;
+  transition-delay: 0.04s;
 }
 
 .service-card-item.pos-left-2 {
   z-index: 10;
   transform: translateX(-120%) scale(0.75) rotateY(32deg);
   opacity: 0.55;
+  transition-delay: 0.12s;
 }
 
 .service-card-item.pos-right-1 {
   z-index: 20;
   transform: translateX(65%) scale(0.9) rotateY(-18deg);
   opacity: 0.85;
+  transition-delay: 0.04s;
 }
 
 .service-card-item.pos-right-2 {
   z-index: 10;
   transform: translateX(120%) scale(0.75) rotateY(-32deg);
   opacity: 0.55;
+  transition-delay: 0.12s;
 }
 
 .service-card-item.hidden {
@@ -167,23 +179,50 @@
   justify-content: center;
   gap: 0.6rem;
   background: #f0f0f0;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.5rem;
   border-radius: 9999px;
+
+  max-width: fit-content;
+
+  margin-inline: auto;
 }
 
 .pagination-dot {
+  position: relative;
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 50%;
   background-color: #d1d5db;
   cursor: pointer;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .pagination-dot.active {
   width: 1.75rem;
   border-radius: 9999px;
+  background-color: #e5e7eb;
+}
+
+.pagination-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0%;
   background-color: #111827;
+  border-radius: 9999px;
+  animation: fillProgress 5s linear forwards;
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {

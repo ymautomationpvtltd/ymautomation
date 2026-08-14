@@ -59,7 +59,7 @@ const About = () => {
 				animate={{ x: 0, opacity: 1 }}
 				exit={{ x: "-120%", opacity: 0 }}
 				transition={{
-					duration: 0.85,
+					duration: 0.5,
 					delay: 0.2,
 					ease: [0.76, 0, 0.24, 1],
 				}}
