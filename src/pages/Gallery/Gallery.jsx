@@ -55,144 +55,168 @@ const galleryImages = [
 	{
 		id: 1,
 		title: "Autoclave",
+		category: "SPM Machines",
 		url: Autocalve,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 2,
 		title: "Battery Management System",
+		category: "Testbenches & Fixtures",
 		url: BMS,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 3,
 		title: "Fixture",
+		category: "Testbenches & Fixtures",
 		url: CogentFixture,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 4,
 		title: "Fixture",
+		category: "Testbenches & Fixtures",
 		url: CogentFixture2,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 5,
 		title: "Control Panel",
+		category: "Control Panels",
 		url: ControlPannel,
 		aspectRatio: 0.85,
 	},
 	{
 		id: 6,
 		title: "Distribution Panel",
+		category: "Control Panels",
 		url: DistributionPanel,
 		aspectRatio: 0.85,
 	},
 	{
 		id: 7,
 		title: "EB And DG Power Selector",
+		category: "Control Panels",
 		url: EbDgPowerSelector,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 8,
 		title: "EB And DG Power Selector",
+		category: "Control Panels",
 		url: EbDgPowerSelector2,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 9,
 		title: "MCB Testbench",
+		category: "Testbenches & Fixtures",
 		url: McbTestbench,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 10,
 		title: "MCB Testbench",
+		category: "Testbenches & Fixtures",
 		url: McbTestbench2,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 11,
 		title: "MCB Testbench",
+		category: "Testbenches & Fixtures",
 		url: McbTestbench3,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 12,
 		title: "MCB Testbench",
+		category: "Testbenches & Fixtures",
 		url: McbTestbench4,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 13,
 		title: "Paper Winding Machine",
+		category: "SPM Machines",
 		url: PaperWindingMachine,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 14,
 		title: "Power Substation",
+		category: "Control Panels",
 		url: PowerSubstation,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 15,
 		title: "Control Pannel",
+		category: "Control Panels",
 		url: ControlPannel2,
 		aspectRatio: 0.85,
 	},
 	{
 		id: 16,
 		title: "Retro Fitting",
+		category: "SPM Machines",
 		url: RetroFitting,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 17,
 		title: "Ultrasonic Sealing Machine",
+		category: "SPM Machines",
 		url: UltrasonicSealingMachine,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 18,
 		title: "Retro Fitting",
+		category: "SPM Machines",
 		url: RetroFitting2,
 		aspectRatio: 1.33,
 	},
 	{
 		id: 19,
 		title: "Tracability Software",
+		category: "Software & IIoT",
 		url: FlexTracabilty,
 		aspectRatio: 1.77,
 	},
 	{
 		id: 20,
 		title: "Testbench Software",
+		category: "Software & IIoT",
 		url: AtherTestbench,
 		aspectRatio: 1.77,
 	},
 	{
 		id: 21,
 		title: "Robotic Welding Monitor",
+		category: "Software & IIoT",
 		url: RoboticWeldingMonitor,
 		aspectRatio: 1.77,
 	},
 	{
 		id: 22,
 		title: "Tracability Software",
+		category: "Software & IIoT",
 		url: TeTracability,
 		aspectRatio: 1.77,
 	},
 	{
 		id: 23,
 		title: "Tracability Software",
+		category: "Software & IIoT",
 		url: PcbTracability,
 		aspectRatio: 1.77,
 	},
 	{
 		id: 24,
 		title: "YM Insights",
+		category: "Software & IIoT",
 		url: YmInsights,
 		aspectRatio: 1.33,
 	},
@@ -490,7 +514,30 @@ const shuffleArray = (array) => {
 const Gallery = () => {
 	const [selectedImg, setSelectedImg] = useState(null);
 	const [windowWidth, setWindowWidth] = useState(() => window.innerWidth);
-	const [galleryOrder] = useState(() => shuffleArray(galleryImages));
+	const galleryOrder = useMemo(() => shuffleArray(galleryImages), []);
+	const [selectedFilter, setSelectedFilter] = useState("All");
+
+	const filterCategories = [
+		"All",
+		"SPM Machines",
+		"Control Panels",
+		"Testbenches & Fixtures",
+		"Software & IIoT",
+	];
+
+	/* =====================================================
+       FILTER IMAGES BY CATEGORY
+    ===================================================== */
+
+	const filteredImages = useMemo(() => {
+		if (selectedFilter === "All") return galleryOrder;
+		return galleryOrder.filter((img) => {
+			const cat =
+				img.category ||
+				galleryImages.find((g) => g.id === img.id)?.category;
+			return cat === selectedFilter;
+		});
+	}, [galleryOrder, selectedFilter]);
 
 	/* =====================================================
        WINDOW RESIZE
@@ -526,8 +573,8 @@ const Gallery = () => {
     ===================================================== */
 
 	const mosaicImages = useMemo(() => {
-		return generateMosaic(galleryOrder, columns);
-	}, [galleryOrder, columns]);
+		return generateMosaic(filteredImages, columns);
+	}, [filteredImages, columns]);
 
 	/* =====================================================
        PRE-COMPUTE MAX BOTTOM ROW
@@ -642,6 +689,18 @@ const Gallery = () => {
 						robotic integration cells, control panels, and Industry
 						4.0 smart factory deployments.
 					</p>
+
+					<div className="gallery-filter-bar">
+						{filterCategories.map((filter) => (
+							<button
+								key={filter}
+								className={`gallery-filter-btn ${selectedFilter === filter ? "active" : ""}`}
+								onClick={() => setSelectedFilter(filter)}
+							>
+								{filter}
+							</button>
+						))}
+					</div>
 				</motion.div>
 
 				{/* =====================================
