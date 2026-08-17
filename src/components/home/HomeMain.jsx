@@ -41,6 +41,16 @@ const HomeMain = () => {
 						<FaArrowRight />
 					</Link>
 
+					{/* Inline Robot Arm for smaller screens (<= 1024px) */}
+					<div className="hero-robot-inline-mobile">
+						<img
+							src={RoboArm}
+							alt="YM Automation Industrial Robot Arm Engineering"
+							className="hero-robot-img"
+						/>
+						<div className="hero-robot-shadow" />
+					</div>
+
 					{/* Phone Number Bar */}
 					<div className="hero-phone-block">
 						<span className="phone-yellow-bar" />
@@ -57,8 +67,8 @@ const HomeMain = () => {
 				{/* Right Column: Robot Arm Graphic with Floor Shadow */}
 				<motion.div
 					className="hero-robot-wrapper"
-					initial={{ y: 100, opacity: 0, scale: 0.95 }}
-					animate={{ y: 0, opacity: 1, scale: 1 }}
+					initial={{ y: 100, opacity: 0, scale: 0.95, rotate: 0 }}
+					animate={{ y: 0, opacity: 1, scale: 1, rotate: 0 }}
 					exit={{
 						rotate: -20,
 						opacity: 0,

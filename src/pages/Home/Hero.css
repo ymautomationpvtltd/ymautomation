@@ -47,3 +47,9 @@
   color: transparent;
   user-select: none;
 }
+
+@media (max-width: 1024px) {
+  .automation-block {
+    display: none;
+  }
+}

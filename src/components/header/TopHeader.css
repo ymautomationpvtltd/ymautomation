@@ -59,21 +59,8 @@
   box-shadow: 0 6px 20px rgba(255, 184, 0, 0.45);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .top-header {
-    left: 80px;
-    right: 16px;
-    top: 16px;
-  }
-
-  .social-icon-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-  }
-
-  .contact-us-pill-btn {
-    padding: 8px 18px;
-    font-size: 13px;
+    display: none;
   }
 }
