@@ -25,16 +25,9 @@ const RootLayout = () => {
       // Do not navigate on scroll if Lightbox modal is open
       if (document.querySelector(".gallery-lightbox-backdrop")) return;
 
-      // Check if user is scrolling inside a scrollable inner container (e.g., gallery grid)
+      // Do not navigate on scroll if user is scrolling inside the gallery grid layout container
       const scrollableTarget = e.target.closest ? e.target.closest(".gallery-grid-layout") : null;
-      if (scrollableTarget) {
-        const isAtTop = scrollableTarget.scrollTop <= 2;
-        const isAtBottom = Math.abs(scrollableTarget.scrollHeight - scrollableTarget.clientHeight - scrollableTarget.scrollTop) <= 5;
-
-        // Block route change if still scrolling inside the container
-        if (e.deltaY > 0 && !isAtBottom) return;
-        if (e.deltaY < 0 && !isAtTop) return;
-      }
+      if (scrollableTarget) return;
 
       if (isCoolingDown.current) return;
       if (Math.abs(e.deltaY) < 25) return;
@@ -69,14 +62,9 @@ const RootLayout = () => {
       const touchEndY = e.changedTouches[0].clientY;
       const diffY = touchStartY.current - touchEndY;
 
+      // Do not navigate on touch scroll if inside the gallery grid layout container
       const scrollableTarget = e.target.closest ? e.target.closest(".gallery-grid-layout") : null;
-      if (scrollableTarget) {
-        const isAtTop = scrollableTarget.scrollTop <= 2;
-        const isAtBottom = Math.abs(scrollableTarget.scrollHeight - scrollableTarget.clientHeight - scrollableTarget.scrollTop) <= 5;
-
-        if (diffY > 0 && !isAtBottom) return;
-        if (diffY < 0 && !isAtTop) return;
-      }
+      if (scrollableTarget) return;
 
       if (isCoolingDown.current) return;
 
